@@ -6,11 +6,11 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class ViewNoteTest extends DuskTestCase
+class DeleteNoteTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
-     @group ViewNote
+     @group DeleteNote
      */
     public function testExample(): void
     {
@@ -22,10 +22,10 @@ class ViewNoteTest extends DuskTestCase
                     ->type(field: 'password', value: '1202210045') //Untuk memasukkan inputan password
                     ->press(button: 'LOG IN') //Melakukan klik login//klil log in
                     ->assertPathIs(path: '/dashboard') //Untuk masuk ke halaman dashboard
-                    ->clickLink(link: 'Notes')//klik Notes di dashboard
-                    ->assertPathIs(path: '/notes')//memasuki halaman notes
-                    ->clickLink(link: 'Praktikum PPL MODUL 3 - Edit')//klik note dengan tittle yang dibuat di halaman notes
-                    ->assertPathIs(path: '/note/3');//memasuki halaman notes yang di buat
+                    ->clickLink(link: 'Notes') //Melakukan klik Notes di dashboard
+                    ->assertPathIs(path: '/notes') //memasuki halaman notes
+                    ->press(button: 'Delete') //Melakukan klik delete untuk menghapus notes
+                    ->assertPathIs(path: '/notes'); //Untuk path kembali ke halaman notes 
 
         });
     }

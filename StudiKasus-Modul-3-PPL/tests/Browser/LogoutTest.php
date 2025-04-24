@@ -6,11 +6,11 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
-class ViewNoteTest extends DuskTestCase
+class LogoutTest extends DuskTestCase
 {
     /**
      * A Dusk test example.
-     @group ViewNote
+     @group Logout
      */
     public function testExample(): void
     {
@@ -22,11 +22,9 @@ class ViewNoteTest extends DuskTestCase
                     ->type(field: 'password', value: '1202210045') //Untuk memasukkan inputan password
                     ->press(button: 'LOG IN') //Melakukan klik login//klil log in
                     ->assertPathIs(path: '/dashboard') //Untuk masuk ke halaman dashboard
-                    ->clickLink(link: 'Notes')//klik Notes di dashboard
-                    ->assertPathIs(path: '/notes')//memasuki halaman notes
-                    ->clickLink(link: 'Praktikum PPL MODUL 3 - Edit')//klik note dengan tittle yang dibuat di halaman notes
-                    ->assertPathIs(path: '/note/3');//memasuki halaman notes yang di buat
-
+                    ->press(button: 'Aaliya') //Melakukan klik profil Aaliya di bagian atas
+                    ->clickLink(link: 'Log Out') //Melakukan klik Log Out
+                    ->assertPathIs(path: '/'); //Akun telah terlogout
         });
     }
 }
